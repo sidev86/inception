@@ -7,9 +7,9 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y mariadb-server
 
 # Copy mariadb script from local to container dir
-COPY /conf/mdb-conf.sh /mdb-conf.sh
+COPY /conf/maria-setup.sh /maria-setup.sh
 
 # Give exec permissions to script
-RUN chmod +x /mdb-conf.sh
+RUN chmod +x /maria-setup.sh
 
-ENTRYPOINT ["./mdb-conf.sh"]
+ENTRYPOINT ["./maria-setup.sh"]
